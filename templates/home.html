@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Home - Thrift Shop{% endblock %}
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to Thrift Shop!</h1>
+    <p class="lead">Find unique, affordable second-hand treasures.</p>
+    {% if user.is_authenticated %}
+    <p class="lead">Welcome back, {{ user.username }}!</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'add_product' %}" role="button">Add Your Item</a>
+    {% else %}
+    <a class="btn btn-primary btn-lg" href="{% url 'products' %}" role="button">Browse Items</a>
+    <a class="btn btn-secondary btn-lg" href="{% url 'register' %}" role="button">Join Now</a>
+    {% endif %}
+</div>
+{% endblock %}
